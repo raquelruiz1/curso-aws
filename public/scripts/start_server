@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo systemct1 start httpd
+sudo systemctl anable httpd
+sudo systemctl restart httpd
