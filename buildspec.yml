@@ -2,24 +2,24 @@ version: 0.2
 
 phases:
   install:
-    runtime-version:
+    runtime-versions:
       nodejs: 20
     commands:
-      -echo Instalando dependencias
-      -npm install 
+      - echo Installing dependencies...
+      - npm install
   build:
-     comands:
-      - echo creando el paquete de dependencia
-      - npm run build
-      post_buils:
-        commands:
-          -echo copiar los archivos que me genera el paquete
-          - cp -r scripts dist/curso-aws/browser/
-          - cp appspec.yml dist/curso-aws/browser/
+    commands:
+      - echo Building the Angular app...
+      - npm run build 
+  post_build:
+    commands:
+      - echo Copying scripts folder and appspec.yaml to dist...
+      - cp -r scripts dist/curso-aws/browser/
+      - cp appspec.yml dist/curso-aws/browser/
 
-artifacs:
+artifacts:
   files:
-    - ´scripts/**/*´
-    - ´appspec.yml´
-    - ´**/*´
-  base-direcory: ./dist/curso-aws/browser/
+    - 'scripts/**/*'
+    - 'appspec.yml'
+    - '**/*'
+  base-directory: ./dist/curso-aws/browser/
